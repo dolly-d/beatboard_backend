@@ -14,16 +14,18 @@ Sound.destroy_all
 Playlist.destroy_all
 User.destroy_all
 
-User.create(name: 'User1')
-User.create(name: 'User2')
+5.times do  
+    User.create(name: rand(1..3))
+end
 
-Playlist.create(name: 'Playlist1', user_id: User.all.sample.id)
-Playlist.create(name: 'Playlist1', user_id: User.all.sample.id)
+10.times do  
+    Sound.create(name: rand(1..10))
+end
 
-Sound.create(name: 'Sound1')
-Sound.create(name: 'Sound2')
+20.times do  
+    Playlist.create(name: rand(1..20), user_id: User.all.sample.id)
+end
 
-PlaylistSound.create(sound_id: Sound.all.sample.id, playlist_id: Playlist.all.sample.id)
-PlaylistSound.create(sound_id: Sound.all.sample.id, playlist_id: Playlist.all.sample.id)
-PlaylistSound.create(sound_id: Sound.all.sample.id, playlist_id: Playlist.all.sample.id)
-PlaylistSound.create(sound_id: Sound.all.sample.id, playlist_id: Playlist.all.sample.id)
+40.times do
+    PlaylistSound.create(sound_id: Sound.all.sample.id, playlist_id: Playlist.all.sample.id)
+end
