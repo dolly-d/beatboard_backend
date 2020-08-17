@@ -1,0 +1,2 @@
+class PlaylistSound < ApplicationRecord
+end
