@@ -14,18 +14,69 @@ Sound.destroy_all
 Playlist.destroy_all
 User.destroy_all
 
-5.times do  
-    User.create(name: rand(1..3))
-end
+users = [
+    {
+      name: "user",
+      id: 1
+    }
+]
 
-10.times do  
-    Sound.create(name: rand(1..10))
-end
+users.each do |user|
+    User.create!(user)
+  end
 
-20.times do  
-    Playlist.create(name: rand(1..20), user_id: User.all.sample.id)
-end
+  playlists = [
+    {
+      name: "random playlist",
+      user_id: 1,
+      id: 1
+    }
+]
 
-40.times do
-    PlaylistSound.create(sound_id: Sound.all.sample.id, playlist_id: Playlist.all.sample.id)
-end
+playlists.each do |playlist|
+    Playlist.create!(playlist)
+  end
+
+
+  sounds = [
+    {
+      name: "random sound",
+      id: 1
+    }
+]
+
+sounds.each do |sound|
+    Sound.create!(sound)
+  end
+
+  playlist_sounds = [
+    {
+      sound_id: 1,
+      playlist_id: 1,
+      id: 1
+    }
+]
+
+playlist_sounds.each do |playlist|
+    PlaylistSound.create!(playlist)
+  end
+
+
+
+
+
+# 5.times do  
+#     User.create(name: rand(1..3))
+# end
+
+# 10.times do  
+#     Sound.create(name: rand(1..10))
+# end
+
+# 20.times do  
+#     Playlist.create(name: rand(1..20), user_id: User.all.sample.id)
+# end
+
+# 40.times do
+#     PlaylistSound.create(sound_id: Sound.all.sample.id, playlist_id: Playlist.all.sample.id)
+# end
