@@ -5,6 +5,12 @@ class PlaylistsController < ApplicationController
         render json: playlists
     end
 
+    def show
+        playlist_params
+
+        render json: playlist
+    end
+
     def update
         playlist = Playlist.find(params[:id])
         
@@ -21,14 +27,16 @@ class PlaylistsController < ApplicationController
 
     def edit
         playlist_params
+
+        render json: playlist
     end
 
 
     def destroy
-        playlist = Playlist.create!(playlist_params)
+        playlist = Playlist.find(params[:id])
 
         playlist.destroy!
-
+    
         render json: {}
     end
 
