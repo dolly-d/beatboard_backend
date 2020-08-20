@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 2020_08_17_162343) do
   create_table "playlists", force: :cascade do |t|
     t.integer "user_id"
     t.string "name"
+    t.string "key_code"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
